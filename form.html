@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="form.css">
+     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+    function nextinput(){
+        var name = document.getElementById("name").value;
+        var reg = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
+        var valid = reg.test("name");
+        if (name==null || name=="" || valid!=true)
+ {
+     $('#nameerror').append("<b>ur name is not valid</b>");
+ }
+       else{
+            $("#first").fadeOut();
+           $("#second").fadeIn();
+            $("#progressbar li").eq(1).addClass("active");
+        }
+
+    }
+    
+    function nextinput2(){
+        var mail = document.getElementById("mail").value;
+        var mreg =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var mvalid = mreg.test("mail");
+        if (mail==null || mail=="" )
+ {
+  $('#mailerror').append("<b>ur mail is not valid</b>");
+ }
+       else{
+            $("#second").fadeOut();
+           $("#third").fadeIn("slow",0);
+            $("#progressbar li").eq(2).addClass("active");
+        }
+
+    }
+    function nextinput3(){
+        var phone = document.getElementById("phone").value;
+        var preg=/ ^[0-9\-\+]{9,15}$/g;
+        var phonevalid = preg.test("preg");
+        if (phone==null || phone==""||phonevalid!=true)
+ {
+  $('#phoneerror').append("<b>ur phone is not valid</b>");
+ }
+       else{
+            $("#third").fadeOut();
+           $("#fourth").fadeIn("slow",0);
+            $("#progressbar li").eq(3).addClass("active");
+        }
+
+    }
+    
+    function nextinput4(){
+        var uni = document.getElementById("uni").value;
+         var unireg = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
+        var uvalid = reg.test("uni");
+        if (name==null || name==""||uvalid!=true)
+ {
+  $('#unierror').append("<b>ur university name is not valid</b>");
+ }
+       else{
+            $("#first").fadeOut();
+           $("#second").fadeIn("slow",0);
+            $("#progressbar li").eq(4).addClass("active");
+        }
+
+    }
+    
+    </script>
+</head>
+    <body>
+    <header class="head">
+    <div id="back"></div>
+<div id="front"></div>
+ <ul id="progressbar">
+    <li class="active">user name</li>
+    <li>mail</li>
+     <li>phone number</li>
+     <li>university</li>
+     <li>faculty</li>
+  </ul>
+  <form class="container" method="post">
+      <div id="first">
+           <input type="text" name="Username" placeholder="Your name..." id="name">
+           <button id="button" type="button" onclick="nextinput();"><i class="fa fa-user icon"></i></button>
+           <p id="nameerror"></p>
+      </div>
+      <div id="second" >
+          <input type="email" name="Email" placeholder="Your Email..." id="mail">
+          <button type="button" id="button1" onclick="nextinput2();"><i class='fas fa-envelope icon'></i></button>
+           <p id="mailerror"></p>
+      </div>
+      <br><br>
+         <div id="third" >
+            <input type="text" name="phone number" placeholder="Your Number..." id="phone" >
+            <button id="button2" type="button" onclick="nextinput3();"><i class='fas fa-phone icon'></i></button>
+             <p id="phoneerror"></p>
+         </div>
+      <br><br>
+        <div id="fourth">
+           <input type="text" name="University" placeholder="University..." id="uni" >
+           <button id="button3" onclick="nextinput4()"><i class='fas fa-university icon'></i></button>
+            <p id="unierror"></p>
+        </div>
+        <br><br>
+        <div id="fifth">
+           <input type="text" name="college" placeholder="College..." >
+           <button id="button" type="button"  style="padding: 10px 15px;">Submet</button>
+       </div>
+        </form>
+     </header>
+
+    </body>
+</html>
